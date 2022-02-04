@@ -27,6 +27,7 @@ class Slidable extends StatefulWidget {
     this.direction = Axis.horizontal,
     this.dragStartBehavior = DragStartBehavior.down,
     this.useTextDirection = true,
+    this.controller,
     required this.child,
   }) : super(key: key);
 
@@ -36,6 +37,7 @@ class Slidable extends StatefulWidget {
   ///
   /// Defaults to true.
   final bool enabled;
+  final SlidableController? controller;
 
   /// Specifies to close this [Slidable] after the closest [Scrollable]'s
   /// position changed.
@@ -102,7 +104,7 @@ class Slidable extends StatefulWidget {
   final Widget child;
 
   @override
-  SlidableState createState() => SlidableState();
+  _SlidableState createState() => _SlidableState();
 
   /// The closest instance of the [SlidableController] which controls this
   /// [Slidable] that encloses the given context.
@@ -122,7 +124,7 @@ class Slidable extends StatefulWidget {
   }
 }
 
-class SlidableState extends State<Slidable>
+class _SlidableState extends State<Slidable>
     with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late final SlidableController controller;
   late Animation<Offset> moveAnimation;
