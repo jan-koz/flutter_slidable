@@ -102,7 +102,7 @@ class Slidable extends StatefulWidget {
   final Widget child;
 
   @override
-  _SlidableState createState() => _SlidableState();
+  SlidableState createState() => SlidableState();
 
   /// The closest instance of the [SlidableController] which controls this
   /// [Slidable] that encloses the given context.
@@ -122,7 +122,7 @@ class Slidable extends StatefulWidget {
   }
 }
 
-class _SlidableState extends State<Slidable>
+class SlidableState extends State<Slidable>
     with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late final SlidableController controller;
   late Animation<Offset> moveAnimation;
